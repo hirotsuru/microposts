@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if logged_in? && current_user == @user
     else
       flash[:alert] = "Cannot update other user's profile!"
-      redirect_to root_path
+      render 'static_pages/home'
     end
   end
 
