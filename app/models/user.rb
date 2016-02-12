@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 0}, on: :update
   validates :location, presence: true, length: { maximum: 20 }, on: :update 
   has_secure_password
+  has_many :microposts
 end
