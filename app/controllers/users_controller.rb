@@ -43,8 +43,7 @@ class UsersController < ApplicationController
   
   def authenticate_user
     @user = User.find(params[:id])
-    if logged_in? && current_user == @user
-    else
+    unless logged_in? && current_user == @user
       flash[:alert] = "Cannot update other user's profile!"
       redirect_to root_path
     end
