@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, only: [:edit, :update]
+      
   def show
    @user = User.find(params[:id])
   end
@@ -19,16 +21,9 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
-    if logged_in? && current_user == @user
-    else
-      flash[:alert] = "Cannot update other user's profile!"
-      render 'static_pages/home'
-    end
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:seccess] = "Successfully updated"
       redirect_to @user
@@ -45,4 +40,14 @@ class UsersController < ApplicationController
                                  :password_confirmation,
                                  :age, :location)
   end
+  
+  def authenticate_user
+    @user = User.find(params[:id])
+    if logged_in? && current_user == @user
+    else
+      flash[:alert] = "Cannot update other user's profile!"
+      redirect_to root_path
+    end
+  end
+  
 end
