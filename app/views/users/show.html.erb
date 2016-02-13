@@ -11,6 +11,8 @@
         <p style="overflow: hidden;"><span class="col-md-3">Age</span><span class="panel panel-default col-md-9"><%= @user.age %></span></p>
         <p style="overflow: hidden;"><span class="col-md-3">Location</span><span class="panel panel-default col-md-9"><%= @user.location %></span></p>
       </div>
+  <%= link_to "follow", users_followings_path(@user), class: "btn btn-primary" %>
+  <%= link_to "follower", users_followers_path(@user), class: "btn btn-primary" %>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

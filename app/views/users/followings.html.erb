@@ -1,0 +1,8 @@
+<h2>Followings List(<%= @user.following_users.count %>)</h2>
+  <ol>
+    <% @users.each do |user|%>
+      <li class="clearfix">
+        <div><%= gravatar_for @user %><%= user.name %></div>
+      </li>
+    <% end %>
+  </ol>
