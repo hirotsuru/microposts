@@ -3,6 +3,7 @@ class UsersController < ApplicationController
       
   def show
    @user = User.find(params[:id])
+   @microposts = @user.microposts.order(created_at: :desc)
   end
 
   def new
@@ -31,6 +32,16 @@ class UsersController < ApplicationController
       flash[:alert] = "Updating Failed"
       render 'edit'
     end
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.following_users
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.follower_users
   end
 
   private

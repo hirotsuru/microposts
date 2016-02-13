@@ -1,11 +1,26 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
 <div class="row">
- <div class="col-md-10 col-md-offset-2">
- 　<p style="overflow: hidden;"><span class="col-md-2">Email</span><span class="panel panel-default col-md-10"><%= @user.email %></span></p>
-   <p style="overflow: hidden;"><span class="col-md-2">Age</span><span class="panel panel-default col-md-10"><%= @user.age %></span></p>
-   <p style="overflow: hidden;"><span class="col-md-2">Location</span><span class="panel panel-default col-md-10"><%= @user.location %></span></p>
- </div>
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+      <div class="row">
+        <p style="overflow: hidden;"><span class="col-md-3">Email</span><span class="panel panel-default col-md-9"><%= @user.email %></span></p>
+        <p style="overflow: hidden;"><span class="col-md-3">Age</span><span class="panel panel-default col-md-9"><%= @user.age %></span></p>
+        <p style="overflow: hidden;"><span class="col-md-3">Location</span><span class="panel panel-default col-md-9"><%= @user.location %></span></p>
+      </div>
+  <%= link_to "follow", users_followings_path(@user), class: "btn btn-primary" %>
+  <%= link_to "follower", users_followers_path(@user), class: "btn btn-primary" %>
+  </aside>
+  <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+    <% end %>
+  </div>
 </div>
