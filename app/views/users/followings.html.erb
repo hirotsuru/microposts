@@ -2,7 +2,10 @@
   <ol>
     <% @users.each do |user|%>
       <li class="clearfix">
-        <div><%= gravatar_for @user %><%= user.name %></div>
+        <div>
+          <%= link_to gravatar_for(user, size: 80), user %>
+          <%= link_to user.name, user %>
+        </div>
       </li>
     <% end %>
   </ol>
