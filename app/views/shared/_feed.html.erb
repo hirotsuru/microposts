@@ -1,0 +1,14 @@
+<% if @feed_items.any? %>
+  <ol class="microposts">
+    <%= render @feed_items %>
+  
+  
+  <% if @user.image? %>
+　　<%= image_tag @user.image.thumb.url %>
+　<% else %>
+　　<%= image_tag 'noimage.gif' %>
+　<% end %>
+  
+  
+  </ol>
+<% end %>
