@@ -6,7 +6,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process resize_to_limit: [400, 400]
 
-  # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     include Cloudinary::CarrierWave
   else
