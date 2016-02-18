@@ -31,12 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 #画像のアップロード
 gem 'carrierwave'
-<<<<<<< HEAD
-
-=======
 gem 'mini_magick'
 gem 'cloudinary'
->>>>>>> ceec4705b39c552e386a60817070317353e89920
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
