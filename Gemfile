@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+# 本番ではpostgressを使用する
+gem 'pg', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,7 +31,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 #画像のアップロード
 gem 'carrierwave'
+<<<<<<< HEAD
 
+=======
+gem 'mini_magick'
+gem 'cloudinary'
+>>>>>>> ceec4705b39c552e386a60817070317353e89920
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

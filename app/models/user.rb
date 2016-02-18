@@ -39,7 +39,10 @@ class User < ActiveRecord::Base
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
   end
+<<<<<<< HEAD
   
   #画像のアップロード
   mount_uploader :image, ImageUploader
+=======
+>>>>>>> ceec4705b39c552e386a60817070317353e89920
 end
